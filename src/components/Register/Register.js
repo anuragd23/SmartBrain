@@ -35,14 +35,15 @@ class Register extends React.Component {
       })
     })
     .then(res => res.json())
-    .then(data => {
-      if(data === 'Success') {
+    .then(user => {
+      if(user) {
+        this.props.loadUser(user);
         this.props.onRouteChange('home');
       }
     })    
   }
 
-  render({ onRouteChange }) {
+  render() {
     return(
       <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">    
       <main className="pa4 black-80">
